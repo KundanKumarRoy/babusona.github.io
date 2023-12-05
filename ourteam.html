@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design My Space</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- ========================Swiper Slider ================ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- =------------ AOS Animation ============= -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<style>
+    .universal-getQoute .form-control {
+        font-size: 1.5rem;
+    }
+</style>
+<style>
+    body {
+        font-family: Roboto, Sans-serif;
+    }
+
+    #container {
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        position: relative;
+        background: #e2e2e2;
+        overflow: visible;
+    }
+
+    #holder {
+        max-width: 700px;
+        width: 98%;
+        min-height: 360px;
+        height: 360px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    #image {
+        width: 40%;
+        height: 100%;
+        float: left;
+        position: relative;
+        z-index: 200;
+        background: ;
+        box-shadow: 0px 40px 120px 0px rgba(0, 0, 0, .52);
+        overflow: visible;
+    }
+
+    #right {
+        width: 60%;
+        height: 100%;
+        float: right;
+        position: relative;
+    }
+
+    #text {
+        width: 60%;
+        height: 320px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 100;
+        background: rgba(255, 255, 255, .57);
+        box-shadow: 0px 40px 120px 0px rgba(0, 0, 0, .52);
+        overflow: hidden;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        outline: none;
+        outline-color: none;
+
+    }
+
+    /* nav {
+        width: 140px;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin: 0 0 -25px -70px;
+        z-index: 1000;
+        box-shadow: 0px 7px 24px 3px rgba(0, 0, 0, .52);
+        display: none;
+    } */
+
+    #leftBtn {
+        width: 50%;
+        height: 100%;
+        float: left;
+        color: rgba(255, 255, 255, .57);
+        background: #232323;
+        font-size: 25px;
+        line-height: 200%;
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, .57);
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
+    }
+
+    #rightBtn {
+        width: 50%;
+        height: 100%;
+        float: right;
+        color: rgba(255, 255, 255, .57);
+        background: #232323;
+        font-size: 25px;
+        line-height: 200%;
+        text-align: center;
+        border-left: 1px solid rgba(255, 255, 255, .57);
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        transition: all .3s ease-in;
+    }
+
+    #leftBtn:hover,
+    #rightBtn:hover {
+        color: #fff;
+    }
+
+    #nav-cirlces {
+        width: 96px;
+        height: 20px;
+        position: absolute;
+        bottom: 8%;
+        left: 50%;
+        margin-left: -50px;
+    }
+
+    .circle {
+        width: 20px;
+        height: 100%;
+        float: left;
+        border-radius: 100%;
+        border: 2px solid #232323;
+        margin: 0 6px;
+        cursor: pointer;
+        -webkit-transition: all .75s cubic-bezier(.86, .3, .07, 1);
+        -moz-transition: all .75s cubic-bezier(.86, .3, .07, 1);
+        -o-transition: all .75s cubic-bezier(.86, .3, .07, 1);
+        transition: all .75s cubic-bezier(.86, .3, .07, 1);
+    }
+
+    #centerText {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: 20%;
+        margin-top: -100px;
+        padding: 10px 0;
+        overflow: visible;
+    }
+
+    p {
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        right: -150px;
+        bottom: 0;
+        margin: auto;
+        font-size: 20px;
+        color: #232323;
+        padding: 0 25px;
+        text-align: center;
+        opacity: 0;
+        -webkit-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        -moz-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        -o-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+    }
+
+    p.quote.active {
+        right: 0;
+        opacity: 1;
+        background: transparent;
+    }
+
+    p.quote:nth-child(2) {
+        top: 25px;
+    }
+
+    .active {
+        background: #f5efef;
+    }
+
+    .img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: -100%;
+        background-position: center !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: 400;
+        -webkit-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        -moz-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        -o-transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+        transition: all 2s cubic-bezier(.86, .3, .03, 1), opacity .7s cubic-bezier(.86, .3, .47, 1) .3s;
+    }
+
+    .img.active {
+        right: 0;
+        opacity: 1;
+        z-index: 500;
+    }
+
+    .jobs {
+        background: #fff url(./assets/image/team-3.jpg);
+    }
+
+    .zuck {
+        background: #fff url(./assets/image/team-1.jpg);
+    }
+
+    .musk {
+        background: #fff url(./assets/image/team-3.jpg);
+
+    }
+
+    #bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /*right: -100%;*/
+        opacity: 0;
+        -webkit-transition: all 1.5s ease;
+        -moz-transition: all 1.5s ease;
+        -o-transition: all 1.5s ease;
+        transition: all 1.5s ease;
+    }
+
+    .slide.active {
+        /*right: 0%;*/
+        opacity: 1;
+    }
+
+
+    @media screen and (max-width:700px) {
+
+        #centerText p {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width:580px) {
+
+        #holder {
+            max-width: 700px;
+            width: 100%;
+            min-height: 360px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: red;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .img {
+            background-position: top left !important;
+        }
+
+        #image {
+            width: 100%;
+            height: 250px;
+            float: left;
+            position: absolute;
+            top: 50%;
+            left: 28%;
+            margin-top: -280px;
+            margin-left: -110px;
+        }
+
+        #right {
+            width: 100%;
+            height: 100%;
+            float: right;
+            position: relative;
+            background: #fa0303;
+        }
+
+        #text {
+            width: 90%;
+            height: 320px;
+            position: absolute;
+            top: 150px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #nav-cirlces {
+            display: none;
+        }
+
+        #centerText {
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            top: 30%;
+            margin-top: -100px;
+            padding: 150px 0 !important;
+            overflow: visible;
+        }
+
+    }
+
+    @media screen and (max-width:450px) {
+        #image {
+            width: 100%;
+            height: 230px;
+            float: left;
+            position: absolute;
+            top: 50%;
+            left: 24%;
+            margin-top: -250px;
+            margin-left: -100px;
+        }
+
+        #text {
+            width: 100%;
+            height: 320px;
+            position: absolute;
+            top: 150px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #nav-cirlces {
+            display: none;
+        }
+
+        #centerText {
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            top: 45%;
+            margin-top: -100px;
+            padding: 120px 0 !important;
+            overflow: visible;
+        }
+
+    }
+</style>
+
+<body>
+    <!-- =============== Get quote universal ========== -->
+    <div class="switcher-area">
+        <a class="switch-button" data-bs-toggle="modal" data-bs-target="#switcher-area"><i><i
+                    class="bi bi-ui-checks"></i> Get Quote</i></a>
+    </div>
+    <div class="modal fade" id="switcher-area" tabindex="-1" aria-labelledby="switcher-areaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="switcher-areaLabel">Get In Touch</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body universal-getQoute">
+                    <form class="row g-3">
+                        <div class="col-md-12">
+                            <label for="inputEmail4" class="form-label fs-3">Name</label>
+                            <input type="text" class="form-control" id="inputEmail4">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label fs-3">Phone Number</label>
+                            <input type="text" class="form-control" id="inputPassword4">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label fs-3">Select Subject</label>
+                            <select class="form-select form-control" aria-label="Default select example">
+                                <option selected>Enquiry For</option>
+                                <option value="1">Interior Desiner</option>
+                                <option value="2">Interior Desiner</option>
+                                <option value="3">Interior Desiner</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label fs-3">Enter Your Massage</label>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-danger fs-3">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- =============== Get quote universal ========== -->
+
+    <!-- =============== Header ================= -->
+    <nav class="navbar navbar-expand-lg bg-transparent py-0">
+        <div class="container ">
+            <a class="navbar-brand fs-2 text-white" href="index.html">
+                <img src="assets/image/brand-logo.png" class="img-fluid" width="200">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start w-50" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="fullhome.html">Full Home</a>
+                        <span class="hovers"></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Kitchen.html">Kitchen</a>
+                        <span class="hovers"></span>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bathroom.html">Bath Room
+                        </a>
+                        <span class="hovers"></span>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="office.html">Full Office
+                        </a>
+                        <span class="hovers"></span>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_us.html">Cunsult Now</a>
+                        <span class="hovers"></span>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- ======================================== -->
+    <section class="home-section position-relative">
+        <div class="swiper home-swiper mySwiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/1.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1>Discover the Art of Living
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/2.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1 class="d-none d-md-block">Creating Harmony Through Design
+                        </h1>
+                        <h1 class="d-block d-md-none">Creating <br> Harmony Through Design
+                        </h1>
+
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/3.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1>Where Style Meets Comfort
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/4.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1 class="d-none d-md-block">
+                            Your Space, Your Signature Style
+                        </h1>
+                        <h1 class="d-block d-md-none">
+                            Your Space, <br> Your Signature Style
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/5.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1 class="d-none d-md-block">Simplicity wins over complexity
+                        </h1>
+                        <h1 class="d-block d-md-none">Simplicity <br> wins over complexity
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/6.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1 class="d-none d-md-block">Redesign
+                            your family space
+                        </h1>
+                        <h1 class="d-block d-md-none">Redesign <br>
+                            your family space
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/7.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1 class="d-none d-md-block">Create Your Space For Life Time
+                        </h1>
+                        <h1 class="d-block d-md-none">Create Your <br> Space For Life Time
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+                <div class="swiper-slide position-relative ">
+                    <div class=" ">
+                        <img src="assets/image/8.jpg" alt="">
+                    </div>
+                    <div class="content position-absolute top-50 start-50 translate-middle">
+                        <h1>Elevate Your Interiors
+                        </h1>
+                    </div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 overlay"></div>
+
+                </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================  About Us ==================-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="sec-heading ">
+                        <svg width="100%">
+                            <text x="50%" y="50%">About Us</text>
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec_pd   example-box">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="background-shapes"></div>
+                <div class="col-12 col-md-4">
+                    <div class="swiper cube-swiper mySwipercube">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="assets/image/abt-5.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/image/abt-2.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/image/abt-3.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="assets/image/abt-4.jpg" />
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8">
+                    <ul class="nav abt-link flex-nowrap flex-lg-wrap nav-pills mb-5 justify-content-center"
+                        id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-history-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-history" type="button" role="tab" aria-controls="pills-history"
+                                aria-selected="true">History</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-vission-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-vission" type="button" role="tab" aria-controls="pills-vission"
+                                aria-selected="false">Vission</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-mission-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-mission" type="button" role="tab" aria-controls="pills-mission"
+                                aria-selected="false">Mission</button>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content abt-content px-lg-5" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-history" role="tabpanel"
+                            aria-labelledby="pills-history-tab" tabindex="0">
+                            <p>Renovation, we believe that every space has the potential to be transformed into a work
+                                of
+                                art. With a passion for design and a commitment to excellence, we strive to create
+                                captivating interiors that reflect the unique personalities and aspirations of our
+                                clients.Our team of talented designers, architects, and craftsmen collaborates closely
+                                with each client to understand their vision and bring it to life.</p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-vission" role="tabpanel"
+                            aria-labelledby="pills-vission-tab" tabindex="0">
+                            <p>Whether it's a residential project, commercial space, or a hospitality establishment, we
+                                approach each project with creativity, professionalism, and a commitment to excellence.
+                                Our portfolio showcases a diverse range of projects that highlight our versatility and
+                                ability to adapt to different design styles and requirements.</p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-mission" role="tabpanel"
+                            aria-labelledby="pills-mission-tab" tabindex="0">
+                            <p>What sets us apart is our attention to detail and our commitment to delivering
+                                exceptional results. We meticulously plan every aspect of the design process, from space
+                                planning and furniture selection to material choices and lighting design. Our goal is to
+                                create harmonious environments that not only inspire but also enhance the daily lives of
+                                those who inhabit them.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================Our Latest Project==================-->
+
+    <section class="py-5">
+        <div class="container">
+            <div class="sec-heading  ">
+                <svg width="100%">
+                    <text x="50%" y="50%"> Latest Project</text>
+                </svg>
+            </div>
+            <div class="row g-3">
+                <!-- col-1 -->
+                <div class="col-12 col-md-6 ">
+                    <div class="wis-img-box shadow-sm "><a href="ouproject.html">
+                            <div class="wis-img rounded">
+                                <img src="assets/image/1.jpg" alt="bridal-wear" class="img-fluid h-100 w-100">
+                            </div>
+                        </a>
+                        <div class="W-I-S text-center p-4">
+                            <h4 class="text-md mb-2">1. Project plan</h4>
+                            <p class="mb-3">Set up a place to plan your project</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- col-1 end -->
+                <!-- col-2 -->
+                <div class="col-12 col-md-6 ">
+
+                    <div class="wis-img-box shadow-sm"><a href="ouproject.html">
+                            <div class=" wis-img rounded">
+                                <img src="assets/image/2.jpg" alt="bridal-wear" class="img-fluid">
+                            </div>
+                        </a>
+                        <div class="W-I-S text-center p-4">
+                            <h4 class="text-md mb-2">2. Define the style, goals</h4>
+                            <p class="mb-3">Define the style, goals & timeline</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- col-2 end -->
+
+                <!-- col-3 -->
+                <div class="col-12 col-md-6 ">
+
+                    <div class="wis-img-box shadow-sm"><a href="ouproject.html">
+                            <div class="wis-img rounded">
+                                <img src="assets/image/3.jpg" alt="bridal-wear" class="img-fluid">
+                            </div>
+                        </a>
+                        <div class="W-I-S text-center p-4">
+                            <h4 class="text-md mb-2">3. Moodboard</h4>
+                            <p class="mb-3">Organize inspiration & references</p>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- col-3 end -->
+
+                <!-- col-4 -->
+                <div class="col-12 col-md-6 ">
+
+                    <div class="wis-img-box shadow-sm"><a href="ouproject.html">
+                            <div class="wis-img  rounded">
+                                <img src="assets/image/4.jpg" alt="bridal-wear" class="img-fluid">
+                            </div>
+                        </a>
+                        <div class="W-I-S text-center p-4">
+                            <h4 class="text-md mb-2">4. Product List</h4>
+                            <p class="mb-3">List the materials you need to purchase
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- col-4 end -->
+
+            </div><!-- Row end -->
+
+        </div><!-- Row end -->
+    </section>
+
+    <!-- ====================== What we Can Do For You ================== -->
+    <section class="bg-white sec_pd">
+        <div class="container">
+            <div class="sec-heading  ">
+                <svg width="100%">
+                    <text x="50%" y="50%">Our Services</text>
+                </svg>
+
+            </div>
+            <div class="row gx-3 gy-4 mb-0">
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="fullhome.html">
+                            <img src="assets/image/Full-Home.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Full Home</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="bedroom.html">
+                            <img src="assets/image/Bed-Room.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Bed Room</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="livingroom.html">
+                            <img src="assets/image/Living-room.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Living Room</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="kidz.html">
+                            <img src="assets/image/kids-zone.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Kid's Zone</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="Kitchen.html">
+                            <img src="assets/image/Kitchen.png" alt="...." class="img-thumbnail" height="60" width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Kitchen</h3>
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="bathroom.html">
+                            <img src="assets/image/Bath-room.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Bath Room</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="wardrob.html">
+                            <img src="assets/image/wardrobe.png" alt="...." class="img-thumbnail" height="60"
+                                width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Wardrobe</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 col-md-6">
+                    <div class="service-box    rounded-3   p-3 ">
+                        <a href="office.html">
+                            <img src="assets/image/office.png" alt="...." class="img-thumbnail" height="60" width="60">
+                            <div class="mt-4 w-100">
+                                <h3>Full Office</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ====================== Our Achivement ================== -->
+    <section>
+        <div class="container">
+            <div class="sec-heading ">
+                <svg width="100%">
+                    <text x="50%" y="50%">Our Achivement</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+    <section class="sec-bg-img sec_pd aos-init aos-animate" data-aos="zoom-in">
+        <div class="container">
+            <div class="row g-3 ">
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="p-1 text-center rounded">
+                        <span class="count m-0">100</span>
+                        <span class="fs-12 kk fw-bold">+</span>
+                        <h4 class="fs-12 counter-heading text-nowrap">Trusted Client</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="p-1 text-center rounded">
+                        <span class="count m-0">80</span>
+                        <span class="fs-12 kk fw-bold">+</span>
+                        <h4 class="fs-12 counter-heading ">Runing Project</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="p-1 text-center rounded">
+                        <span class="count m-0">150</span>
+                        <span class="fs-12 kk fw-bold">+</span>
+                        <h4 class="fs-12 counter-heading ">PROJECTS DELIVERED
+                        </h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3">
+                    <div class="p-1 text-center rounded">
+                        <span class="count m-0">50</span>
+                        <span class="fs-12 kk fw-bold">+</span>
+                        <h4 class="fs-12 counter-heading ">DESIGNERS
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Our Gallary ================== -->
+    <section class="bgl sec_pd ">
+        <div class="container-fluid">
+            <div class="sec-heading mb-5">
+                <svg width="100%">
+                    <text x="50%" y="50%">Our Galary</text>
+                </svg>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="marquee mb-3">
+                        <div class="marquee__group">
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-1.jpg" />
+                            <img src="assets/image/abt-4.jpg" />
+                            <img src="assets/image/abt-2.jpg" />
+                            <img src="assets/image/abt-3.jpg" />
+                        </div>
+
+                        <div aria-hidden="true" class="marquee__group">
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-1.jpg" />
+                            <img src="assets/image/abt-4.jpg" />
+                            <img src="assets/image/abt-2.jpg" />
+                            <img src="assets/image/abt-3.jpg" />
+                        </div>
+                    </div>
+
+
+                    <div class="marquee marquee--reverse ">
+                        <div class="marquee__group">
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-1.jpg" />
+                            <img src="assets/image/abt-4.jpg" />
+                            <img src="assets/image/abt-2.jpg" />
+                            <img src="assets/image/abt-3.jpg" />
+                        </div>
+
+                        <div aria-hidden="true" class="marquee__group ">
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-5.jpg" />
+                            <img src="assets/image/abt-1.jpg" />
+                            <img src="assets/image/abt-4.jpg" />
+                            <img src="assets/image/abt-2.jpg" />
+                            <img src="assets/image/abt-3.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ======================= testimonial Section ======================== -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="container">
+                        <div id="holder">
+                            <div id="image">
+                                <div class="img jobs"></div>
+                                <div class="img zuck"></div>
+                                <div class="img musk"></div>
+                            </div>
+
+                            <div id="right"></div>
+
+                            <div id="text">
+                                <div id="centerText">
+                                    <p class="quote">
+                                        <i class='bi bi-quote' style='font-size:30px;color:#fa0303'></i> "Our experience
+                                        with Livspace was pleasurable because of the project managers. The work got done
+                                        before 45 days just the way we wanted it to be." <svg
+                                            xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z"
+                                                style='color:#fa0303' />
+                                        </svg>
+
+                                    </p>
+                                    <p class="quote">
+                                        <i class='bi bi-quote' style='font-size:30px;color:#fa0303'></i> "The designer's
+                                        dedication made the place look beautiful and it gets better everyday I enter my
+                                        home".
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z"
+                                                style='color:#fa0303' />
+                                        </svg>
+
+                                    </p>
+                                    <p class="quote">
+                                        <i class='bi bi-quote' style='font-size:30px;color:#fa0303'></i> "We never
+                                        thought our ideas can be shaped into a reality with the minimalist look we
+                                        dreamt of for our house." <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                            viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z"
+                                                style='color:#fa0303' />
+                                        </svg>
+
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- <div id="bg">
+            <div class="slide jobs-bg"></div>
+            <div class="slide zuck-bg"></div>
+            <div class="slide musk-bg"></div>
+        </div> -->
+
+                        <div id="nav-cirlces">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===================== Contact Us Section ======================== -->
+    <section class="sec_pd">
+        <div class="container-fluid container-lg">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-text">
+                                <h2> <i class="bi bi-geo-alt-fill"></i> address</h2>
+                                <span>Noida. Gurgaon. Delhi NCR</span>
+                                <span class="invisible">Chandigarh , INDIA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-text">
+                                <h2> <i class="bi bi-envelope-open me-2"></i>Contact Us</h2>
+                                <span>services@designmyspace.online</span>
+                                <span>+91-7303976632</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <div class="contact-info-item ">
+                            <div class="contact-info-text">
+                                <h2><i class="bi bi-alarm  me-2"></i>Office time</h2>
+                                <span>Mon - Thu 9:00 am - 4.00 pm</span>
+                                <span>Thu - Mon 10.00 pm - 5.00 pm</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== footer Us Section ======================== -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 ">
+                <div class="row g-3">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Noida. Gurgaon. Delhi NCR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="bi bi-telephone-fill"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+91-7303976632</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="bi bi-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>services@designmyspace.online</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-1">
+                <div class="row g-3">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="assets/image/brand-logo.png" width="78%"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p> Design My Space brings 10 years of interior design experience right to your home or
+                                    office. Our design professionals are equipped to help you determine the products and
+                                    designs that work best.
+                                </p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <ul class="social_icon">
+                                    <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul>
+                                <li><a href="our_team.html">Our Team</a></li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="term&condition.html">Terms</a></li>
+                                <li><a href="aboutus.html">About Us</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="contact_us.html">Contact us</a></li>
+                                <li><a href="privacy.html">Privacy</a></li>
+                                <!-- <li><a href="#">Policy</a></li> -->
+
+                            </ul>
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Mail Us For More Information</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address">
+                                    <button><i class="bi bi-telegram"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row justify-content-center g-3">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2023, All Right Reserved <a href="#"> </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===========================JS AND JQUERY CDN ===========================  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    <!-- Aos animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        $(window).load(function () {
+            $(".circle")
+                .first()
+                .addClass("active");
+            $("#bg .slide")
+                .first()
+                .addClass("active");
+            $("#image .img")
+                .first()
+                .addClass("active");
+            $(".quote")
+                .first()
+                .addClass("active");
+
+            var animate = setInterval(function () {
+                var $this = $(".circle"),
+                    currentActiveBubble = $("#nav-cirlces").find(".active"),
+                    position = $("#nav-cirlces")
+                        .children()
+                        .index(currentActiveBubble),
+                    num = $(".circle").length;
+
+                if (position < num - 1) {
+                    $(".active")
+                        .removeClass("active")
+                        .next()
+                        .addClass("active");
+                } else {
+                    $(".circle")
+                        .removeClass("active")
+                        .first()
+                        .addClass("active");
+                    $("#bg .slide")
+                        .removeClass("active")
+                        .first()
+                        .addClass("active");
+                    $("#image .img")
+                        .removeClass("active")
+                        .first()
+                        .addClass("active");
+                    $(".quote")
+                        .removeClass("active")
+                        .first()
+                        .addClass("active");
+                }
+                position++;
+            }, 4500);
+
+            $(".circle").click(function () {
+                clearInterval(animate);
+
+                var $this = $(this),
+                    $siblings = $this.parent().children(),
+                    position = $siblings.index($this);
+
+                $(".circle")
+                    .removeClass("active")
+                    .eq(position)
+                    .addClass("active");
+                $("#bg .slide")
+                    .removeClass("active")
+                    .eq(position)
+                    .addClass("active");
+                $("#image .img")
+                    .removeClass("active")
+                    .eq(position)
+                    .addClass("active");
+                $(".quote")
+                    .removeClass("active")
+                    .eq(position)
+                    .addClass("active");
+            });
+
+            $("#rightBtn , #leftBtn").click(function () {
+                clearInterval(animate);
+
+                var $this = $(this),
+                    currentActiveBubble = $("#nav-cirlces").find(".active"),
+                    position = $("#nav-cirlces")
+                        .children()
+                        .index(currentActiveBubble),
+                    num = $(".circle").length;
+
+                if ($this.hasClass("next")) {
+                    if (position < num - 1) {
+                        $(".active")
+                            .removeClass("active")
+                            .next()
+                            .addClass("active");
+                    } else {
+                        $(".circle")
+                            .removeClass("active")
+                            .first()
+                            .addClass("active");
+                        $("#bg .slide")
+                            .removeClass("active")
+                            .first()
+                            .addClass("active");
+                        $("#image .img")
+                            .removeClass("active")
+                            .first()
+                            .addClass("active");
+                        $(".quote")
+                            .removeClass("active")
+                            .first()
+                            .addClass("active");
+                    }
+                } else {
+                    if (position === 0) {
+                        $(".circle")
+                            .removeClass("active")
+                            .last()
+                            .addClass("active");
+                        $("#bg .slide")
+                            .removeClass("active")
+                            .last()
+                            .addClass("active");
+                        $("#image .img")
+                            .removeClass("active")
+                            .last()
+                            .addClass("active");
+                        $(".quote")
+                            .removeClass("active")
+                            .last()
+                            .addClass("active");
+                    } else {
+                        $(".active")
+                            .removeClass("active")
+                            .prev()
+                            .addClass("active");
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
